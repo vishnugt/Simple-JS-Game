@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<style type="text/css">
+	</style>
+	<script>
+		function initCanvas(){
+			var ctx= document.getElementById('my_canvas').getContext('2d');
+			var cw = ctx.canvas.width;
+			var ch = ctx.canvas.height;
+			var enemies =   [{"id": "enemy1", "x":100, "y":-20, "w":40, "h":20 },
+							{"id": "enemy1", "x":200, "y":-20, "w":40, "h":20 },
+							{"id": "enemy1", "x":300, "y":-20, "w":40, "h":20 },
+							{"id": "enemy1", "x":100, "y":-60, "w":40, "h":20 },
+							{"id": "enemy1", "x":200, "y":-60, "w":40, "h":20 },
+							{"id": "enemy1", "x":300, "y":-60, "w":40, "h":20 }
+			];
+			function renderEnemies(){
+				for(var i=0; i< enemies.length; i++){
+					ctx.fillStyle="magenta";
+					ctx.fillRect(enemies[i].x, enemies[i].y += .5, enemies[i].w, enemies[i].h);
+				}
+			}
+
+
+
+		function animate(){
+			ctx.clearRect(0, 0, cw, ch);
+			//launcher.render();
+			renderEnemies();
+		}
+
+
+		var animateInterval = setInterval(animate, 30);
+	
+		}
+
+
+
+
+	</script>
+</head>
+
+<body style="background-color:grey;">
+	<canvas id="my_canvas" width="1000" height="700" style="background-color:white;"></canvas>
+	<div>
+		<button id = "leftbtn"> Left </button>
+		<button id = "firebtn"> Fire </button>
+		<button id = "rightbtn"> Right </button>
+		<h3 id="status"></h3>
+	</body>
+</html>
